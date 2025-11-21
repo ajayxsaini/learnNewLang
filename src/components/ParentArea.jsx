@@ -4,15 +4,19 @@ import LangPronArea from './LangPronArea'
 import PdfHandleUpload from './PdfHandleUpload'
 
 const ParentArea = () => {
-  const [text, setText] = useState("")
-
+  const [text, setText] = useState("");        // live input
+  const [speakText, setSpeakText] = useState(""); // only spoken when Generate clicked
 
   return (
     <div>
-        <TextArea text={text} setText={setText} onGenerate={setText}/>
+      <TextArea 
+        text={text}
+        setText={setText}
+        onGenerate={() => setSpeakText(text)}   //
+      />
 
-        <LangPronArea generatedText={text} />
-        <PdfHandleUpload onSelectedText={setText} />
+      <LangPronArea generatedText={speakText} />  
+      <PdfHandleUpload onSelectedText={setText} />
     </div>
   )
 }
