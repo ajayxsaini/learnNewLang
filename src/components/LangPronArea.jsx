@@ -107,12 +107,12 @@ const LangPronArea = ({ generatedText }) => {
   const resume = () => speechSynthesis.resume();
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 flex flex-col justify-center items-center">
 
       {/* Readonly Highlight Box */}
       <div
-        className="w-full h-40 p-3 border-2 border-gray-400 rounded-lg overflow-y-auto bg-white"
-        style={{ whiteSpace: "pre-wrap" }}
+        className="min-w-[calc(100%-20%)] max-w-[calc(100%-10%)]  h-40 p-3  border-2 border-gray-400 rounded-lg overflow-y-auto bg-white"
+        style={{ whiteSpace: "normal" }}
       >
         {words.map((word, i) => (
           <span

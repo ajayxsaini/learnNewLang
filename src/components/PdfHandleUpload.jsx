@@ -95,16 +95,16 @@ export default function PdfHandleUpload({ onSelectedText }) {
   };
 
   return (
-    <div className="max-w-4xl">
+    <div className="w-full mt-10 overflow-x-hidden max-w-full box-border">
 
       {/* File + Clear */}
-      <div className="flex items-center gap-4">
+      <div className="w-full max-w-xl mx-auto flex flex-col items-center gap-4">
         <input
           ref={fileInputRef}
           type="file"
           accept="application/pdf"
           onChange={handlePDF}
-          className="border px-3 py-2 rounded text-sm"
+          className="border px-3 py-2 rounded text-sm w-full"
         />
         <button
           onClick={() => {
@@ -124,7 +124,7 @@ export default function PdfHandleUpload({ onSelectedText }) {
       {loading && <div className="mt-2 text-sm">Extracting text…</div>}
 
       {pages.length > 0 && (
-        <div className="mt-4 space-y-4">
+        <div className="w-full overflow-x-hidden mt-4 space-y-4 max-w-4xl">
 
           {/* Mode + page selector */}
           <div className="flex items-center gap-4">
@@ -171,12 +171,12 @@ export default function PdfHandleUpload({ onSelectedText }) {
             </div>
           </div>
 
-          <div className="flex gap-6">
+          <div className="flex flex-col lg:flex-row min-w-0 box-border gap-6  overflow-x-hidden">
 
             {/* Left side */}
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               {mode === "paragraphs" ? (
-                <div className="border rounded p-3 h-96 overflow-auto bg-white">
+                <div className="border rounded p-3 h-96 overflow-auto bg-white  ">
                   {splitToParagraphs(pages[currentPage].text).map((p, idx) => {
                     const selected =
                       selectedBlock.page === currentPage &&
@@ -201,7 +201,7 @@ export default function PdfHandleUpload({ onSelectedText }) {
               ) : (
                 <div
                   onMouseUp={handleMouseUp}
-                  className="border rounded p-3 h-96 overflow-auto bg-white whitespace-pre-wrap text-sm"
+                  className="border rounded p-3 h-96 overflow-auto bg-white whitespace-pre-wrap text-sm wrap-break-words"
                   dangerouslySetInnerHTML={{
                     __html: renderPreview(
                       pages[currentPage].text,
@@ -213,13 +213,13 @@ export default function PdfHandleUpload({ onSelectedText }) {
             </div>
 
             {/* Right side */}
-            <div className="w-72 space-y-3">
+            <div className="w-full min-w-0 lg:w-72 max-w-full space-y-3">
               <div className="border rounded p-3 bg-white">
                 <div className="text-xs text-gray-600 mb-2">
                   Selected text preview
                 </div>
 
-                <div className="border rounded bg-gray-50 p-2 h-32 overflow-auto text-sm whitespace-pre-wrap">
+                <div className="border rounded bg-gray-50 p-2 h-32 overflow-auto text-sm whitespace-pre-wrap wrap-break-words">
                   {selectedText || (
                     <span className="text-gray-400">No text selected</span>
                   )}

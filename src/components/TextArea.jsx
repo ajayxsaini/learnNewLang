@@ -3,8 +3,8 @@ import React from 'react'
 const TextArea = ({ text, setText, onGenerate }) => {
 
   return (
-    <div className="min-h-screen/5 w-screen flex justify-center items-center bg-gray-100">
-      <div className="w-[80%] max-w-md flex flex-col items-center">
+    <div className="min-h-screen/2 w-screen flex justify-center items-center bg-gray-100">
+      <div className="min-w-[calc(100%-20%)] max-w-[calc(100%-10%)]  mt-4 flex flex-col items-center">
 
         {/* Textarea section */}
         <div className="w-full">
@@ -19,7 +19,7 @@ const TextArea = ({ text, setText, onGenerate }) => {
         </div>
 
         {/* Button section */}
-        <div className="mt-4">
+        <div className="mt-4 mb-4">
           <button
             onClick={() => onGenerate(text)}
             className="px-6 py-2 bg-green-400 text-white rounded-lg transition hover:bg-green-700 cursor-pointer"
