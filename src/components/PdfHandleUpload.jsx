@@ -1,3 +1,6 @@
+/*Need to check the width something is expanding beyond the screen to the left*/
+
+
 import React, { useState, useRef } from "react";
 import { getDocument, GlobalWorkerOptions } from "pdfjs-dist/build/pdf";
 import worker from "pdfjs-dist/build/pdf.worker.mjs?url";
@@ -245,7 +248,7 @@ export default function PdfHandleUpload({ onSelectedText }) {
                   </button>
                 </div>
               </div>
-
+                    
               <div className="text-xs text-gray-500">
                 Page {currentPage + 1} of {pages.length}
               </div>
